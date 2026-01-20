@@ -24,6 +24,10 @@ class HttpClient {
             }
         })
     }
+
+    getAxiosInstance() {
+        return this.instance;
+    }
 }
 
-export default new HttpClient();
+export default HttpClient;
