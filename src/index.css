@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+    --font-serif-garamond: 'EB Garamond', serif;
+    --font-sans-montserrat: 'Montserrat', sans-serif;
+
+    --color-primary-100: #EF0303;
+    --color-primary-200: #AE0909;
+    --color-primary-500: #740B0B;
+    --color-primary-700: #2A0303;
+
+    --color-secondary-100: #EDEDED;
+    --color-secondary-200: #8C8C8C;
+    --color-secondary-500: #5D5D5D;
+    --color-secondary-700: #262626;
+
+    --color-contrast-100: #FFFFFF;
+    --color-contrast-0: #000000;
+}
