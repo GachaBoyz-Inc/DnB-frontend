@@ -4,7 +4,7 @@ const Header = () => {
     const navButtonStyle = 'after:duration-200 after:transform after:content-[""] after:block after:w-0 after:h-0.5 after:bg-contrast-100 after:mt-2 hover:after:w-full after:absolute relative'
 
   return (
-    <header className='w-full bg-contrast-0 flex items-center justify-between px-8 py-6'>
+    <header className='absolute z-1 w-full flex items-center justify-between px-8 py-6'>
         <p className='text-primary-100 font-bold text-4xl cursor-default'>
             DARIUS
         </p>
