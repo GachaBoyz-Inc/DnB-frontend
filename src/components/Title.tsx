@@ -1,14 +1,18 @@
+import { twMerge } from "tailwind-merge"
+
 interface TitleProps {
     text: string
     subText: string
-    classProps?: string
+    containerClassProps?: string
+    titleClassProps?: string
+    subTitleClassProps?: string
 }
 
-const Title = ({ text, subText, classProps }: TitleProps) => {
+const Title = ({ text, subText, containerClassProps, titleClassProps, subTitleClassProps }: TitleProps) => {
   return (
-    <div className={classProps}>
-      <h1>{text}</h1>
-      <h2>{subText}</h2>
+    <div className={twMerge("text-center", containerClassProps)}>
+      <h1 className={twMerge("mb-1", titleClassProps)}>{text}</h1>
+      <h2 className={subTitleClassProps}>{subText}</h2>
     </div>
   )
 }
