@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../../layouts/Header'
 import heroImage from "../../assets/images/hero-image.jpg"
 import arrow_right_white from "../../assets/icons/arrow_right_white.svg"
