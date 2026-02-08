@@ -1,10 +1,13 @@
-import Auth from "./pages/noAuth/Auth"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Characters from "./pages/auth/Characters"
 
 const App = () => {
   return (
-    <div>
-      <Auth />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Characters />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
