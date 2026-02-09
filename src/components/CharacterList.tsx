@@ -3,6 +3,7 @@ import { Search, Filter, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CharacterCard } from "./CharacterCard";
+import { useNavigate } from "react-router-dom";
 
 const mockCharacters = [
   {
@@ -26,6 +27,7 @@ const mockCharacters = [
 export function CharacterList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [characters, setCharacters] = useState<typeof mockCharacters>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCharacters(mockCharacters);
@@ -49,7 +51,7 @@ export function CharacterList() {
             Listagem dos personagens
           </p>
         </div>
-        <Button className="gap-2 cursor-pointer bg-primary-200 hover:bg-primary-500">
+        <Button onClick={() => navigate("/criar-personagem")} className="gap-2 cursor-pointer bg-primary-200 hover:bg-primary-500">
           <Plus className="h-4 w-4" />
           Criar Personagem
         </Button>
