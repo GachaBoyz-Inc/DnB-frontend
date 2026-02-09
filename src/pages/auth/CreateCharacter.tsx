@@ -7,9 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AppSidebar } from "@/components/AppSidebar";
-import { RACES, CLASSES } from "@/lib/characters";
+import { RACES, CLASSES, BACKGROUNDS } from "@/lib/characters";
 
-const STEPS = ["Básico", "Atributos", "Detalhes"];
+const STEPS = ["Básico", "Atributos", "Detalhes", "Personalidade"];
 
 const ATTRIBUTES = ["Força", "Destreza", "Constituição", "Inteligência", "Sabedoria", "Carisma"];
 
@@ -23,6 +23,11 @@ const CreateCharacter = () => {
     level: 1,
     attributes: Object.fromEntries(ATTRIBUTES.map((a) => [a, 10])),
     background: "",
+    appearance: "",
+    ideals: "",
+    goals: "",
+    flaws: "",
+    bonds: "",
     backstory: "",
   });
 
@@ -41,7 +46,7 @@ const CreateCharacter = () => {
   };
 
   const handleFinish = () => {
-    navigate("/personagens");
+    navigate("/");
   };
 
   return (
@@ -50,7 +55,7 @@ const CreateCharacter = () => {
 
       <main className="flex-1 p-8 max-w-3xl">
         <button
-          onClick={() => navigate("/personagens")}
+          onClick={() => navigate("/")}
           className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
         >
           <ChevronLeft className="h-4 w-4" /> Voltar
@@ -196,11 +201,30 @@ const CreateCharacter = () => {
               <>
                 <div className="space-y-2">
                   <Label>Antecedente</Label>
-                  <Input
-                    value={form.background}
-                    onChange={(e) => updateField("background", e.target.value)}
-                    placeholder="Ex: Soldado, Nobre, Eremita..."
-                    className="bg-card"
+                  <div className="grid grid-cols-3 gap-2">
+                    {BACKGROUNDS.map((b) => (
+                      <button
+                        key={b}
+                        onClick={() => updateField("background", b)}
+                        className={`px-3 py-2.5 rounded-md border text-sm font-display transition-colors ${
+                          form.background === b
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border bg-card text-foreground hover:border-primary/40"
+                        }`}
+                      >
+                        {b}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label>Aparência</Label>
+                  <Textarea
+                    value={form.appearance}
+                    onChange={(e) => updateField("appearance", e.target.value)}
+                    placeholder="Descreva a aparência do seu personagem..."
+                    rows={3}
+                    className="bg-card resize-none"
                   />
                 </div>
                 <div className="space-y-2">
@@ -209,7 +233,52 @@ const CreateCharacter = () => {
                     value={form.backstory}
                     onChange={(e) => updateField("backstory", e.target.value)}
                     placeholder="Conte a história de origem do seu personagem..."
-                    rows={6}
+                    rows={4}
+                    className="bg-card resize-none"
+                  />
+                </div>
+              </>
+            )}
+
+            {step === 3 && (
+              <>
+                <div className="space-y-2">
+                  <Label>Ideais</Label>
+                  <Textarea
+                    value={form.ideals}
+                    onChange={(e) => updateField("ideals", e.target.value)}
+                    placeholder="O que motiva seu personagem? Quais princípios ele segue?"
+                    rows={3}
+                    className="bg-card resize-none"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Objetivos</Label>
+                  <Textarea
+                    value={form.goals}
+                    onChange={(e) => updateField("goals", e.target.value)}
+                    placeholder="Quais são os objetivos do seu personagem?"
+                    rows={3}
+                    className="bg-card resize-none"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Falhas</Label>
+                  <Textarea
+                    value={form.flaws}
+                    onChange={(e) => updateField("flaws", e.target.value)}
+                    placeholder="Quais são as fraquezas ou vícios do seu personagem?"
+                    rows={3}
+                    className="bg-card resize-none"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Vínculos</Label>
+                  <Textarea
+                    value={form.bonds}
+                    onChange={(e) => updateField("bonds", e.target.value)}
+                    placeholder="Com quem ou o quê seu personagem tem laços importantes?"
+                    rows={3}
                     className="bg-card resize-none"
                   />
                 </div>
