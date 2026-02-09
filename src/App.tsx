@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound"
 import PublicRoute from "./routes/PublicRoute"
 import Register from "./pages/noAuth/Register"
 import Login from "./pages/noAuth/Login"
+import CreateCharacter from "./pages/auth/CreateCharacter"
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProtectedRoute><Characters /></ProtectedRoute>} />
+          <Route path="/criar-personagem" element={<ProtectedRoute><CreateCharacter /></ProtectedRoute>} />
           <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
           <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
           <Route path="*" element={<NotFound />} />

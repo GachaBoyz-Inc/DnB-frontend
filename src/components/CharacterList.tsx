@@ -28,10 +28,6 @@ export function CharacterList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [characters, setCharacters] = useState<typeof mockCharacters>([]);
   const navigate = useNavigate();
-<<<<<<< HEAD
-
-=======
->>>>>>> 1bdf5f16a637773eb18ad64624839aa17d6a928d
   useEffect(() => {
     setCharacters(mockCharacters);
     // Aqui você pode adicionar a lógica para buscar os personagens do backend
@@ -54,11 +50,7 @@ export function CharacterList() {
             Listagem dos personagens
           </p>
         </div>
-<<<<<<< HEAD
-        <Button onClick={() => navigate("/criar-personagem")} className="gap-2 cursor-pointer bg-primary-200 hover:bg-primary-500">
-=======
         <Button className="gap-2 cursor-pointer bg-primary-200 hover:bg-primary-500" onClick={() => navigate('/criar-personagem')}>
->>>>>>> 1bdf5f16a637773eb18ad64624839aa17d6a928d
           <Plus className="h-4 w-4" />
           Criar Personagem
         </Button>

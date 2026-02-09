@@ -1,14 +1,14 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface RootProps {
+interface RootProps extends React.FormHTMLAttributes<HTMLFormElement> {
     children: React.ReactNode
     classProps?: string
 }
 
-const Root = ({ children, classProps }: RootProps) => {
+const Root = ({ children, classProps, ...props }: RootProps) => {
   return (
-    <form className={twMerge(classProps)}>{children}</form>
+    <form className={twMerge(classProps)} {...props}>{children}</form>
   )
 }
 

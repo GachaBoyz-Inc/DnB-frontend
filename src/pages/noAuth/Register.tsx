@@ -3,9 +3,21 @@ import Title from '../../components/Title'
 import LoginImage from '../../assets/images/login-image.jpg'
 import Button from '../../components/form/Button'
 import { useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik';
 
 const Register = () => {
   const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    },
+    onSubmit: (values) => {
+        console.log("Formulário enviado com os valores: ", values);
+    }
+  });
 
   return (
     <div className='size-full grid lg:grid-cols-2'>
@@ -33,11 +45,11 @@ const Register = () => {
           subTitleClassProps='font-light text-xl'
         />
 
-        <Form.Root classProps='w-full'>
-          <Form.Input id="name" label="Nome" classProps='w-full mb-10' />
-          <Form.Input id="email" label="Email" classProps='w-full mb-10' placeholder='Ex: usuario@example.com' />
-          <Form.Input id="password" label="Senha" classProps='w-full mb-10' type='password' />
-          <Form.Input id="confirmPassword" label="Confirmar Senha" classProps='w-full mb-10' type='password' />
+        <Form.Root classProps='w-full' onSubmit={formik.handleSubmit}>
+          <Form.Input id="name" label="Nome" classProps='w-full mb-10' value={formik.values.name} onChange={formik.handleChange} />
+          <Form.Input id="email" label="Email" classProps='w-full mb-10' placeholder='Ex: usuario@example.com' value={formik.values.email} onChange={formik.handleChange} />
+          <Form.Input id="password" label="Senha" classProps='w-full mb-10' type='password' value={formik.values.password} onChange={formik.handleChange} />
+          <Form.Input id="confirmPassword" label="Confirmar Senha" classProps='w-full mb-10' type='password' value={formik.values.confirmPassword} onChange={formik.handleChange} />
 
           <Form.Button label='Criar conta' containerClassProps='text-end' />
         </Form.Root>

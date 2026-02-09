@@ -19,7 +19,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error("useAuth deve ser usado dentro de um AuthProvider");
   }
   return context;
 };
@@ -35,11 +35,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    console.log("Logging in with email:", email, "and password:", password);
+    console.log("Credenciais: ", email, " & ", password);
   };
 
   const register = async (name: string, email: string, password: string) => {
-    console.log("Registering with name:", name, "email:", email, "and password:", password);
+    console.log("Credenciais: ", name, " & ", email, " & ", password);
   };
 
   const logout = () => {
