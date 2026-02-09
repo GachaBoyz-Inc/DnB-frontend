@@ -8,6 +8,7 @@ class Character {
     private bonds: string
     private flaws: string
     private personalityTraits: string
+    private alignment: string
     private raceId: number
     private classId: number
     private attributesId: number
@@ -24,7 +25,7 @@ class Character {
     private currentHp: number
     private tempHp: number
 
-    constructor(id: number, name: string, backstory: string, appearance: string, ideals: string, objectives: string, bonds: string, flaws: string, personalityTraits: string, raceId: number, classId: number, backgroundId: number, attributesId: number, skillsId: number, userId: number, playerName: string, level: number, proficiencyBonus: number, armorClass: number, initiative: number, speed: number, maxHp: number, currentHp: number, tempHp: number){
+    constructor(id: number, name: string, backstory: string, appearance: string, ideals: string, objectives: string, bonds: string, flaws: string, personalityTraits: string, alignment:string, raceId: number, classId: number, backgroundId: number, attributesId: number, skillsId: number, userId: number, playerName: string, level: number, proficiencyBonus: number, armorClass: number, initiative: number, speed: number, maxHp: number, currentHp: number, tempHp: number){
         this.id = id
         this.name = name
         this.backstory = backstory
@@ -34,6 +35,7 @@ class Character {
         this.bonds = bonds
         this.flaws = flaws
         this.personalityTraits = personalityTraits
+        this.alignment = alignment
         this.raceId = raceId
         this.classId = classId
         this.attributesId = attributesId
@@ -51,80 +53,84 @@ class Character {
         this.tempHp = tempHp
     }
 
-getCharacterId() {
-    return this.id
-};
+    getCharacterId() {
+        return this.id
+    };
 
-getCharacterName() {
-    return this.name
-};
-getCharacterBackstory() {
-    return this.backstory
-};
-getCharacterAppearance() {
-    return this.appearance
-};
-getCharacterIdeals() {
-    return this.ideals
-};
-getCharacterObjectives() {
-    return this.objectives
-};
-getCharacterBonds() {
-    return this.bonds
-};
-getCharacterFlaws() {
-    return this.flaws
-};
-getCharacterpersonalityTraits() {
-    return this.personalityTraits
-};
-getCharacterraceId() {
-    return this.raceId
-};
-getCharacterClassId() {
-    return this.classId
-};
-getCharaterbackgroundId() {
-    return this.backgroundId
-};
-getCharacterAttributesId() {
-    return this.attributesId
-};
-getCharacterSkillsId() {
-    return this.skillsId
-};
-getCharacterUserId() {
-    return this.userId
-};
-getCharacterplayerName() {
-    return this.playerName
-};
-getCharacterLevel() {
-    return this.level
-};
-getCharacterProficiencyBonus() {
-    return this.proficiencyBonus
-};
-getCharacterArmorClass() {
-    return this.armorClass
-};
-getCharacterInitiative() {
-    return this.initiative
-};
-getCharacterSpeed() {
-    return this.speed
-};
-getCharacterMaxHp() {
-    return this.maxHp
-};
-getCharacterCurrentHp() {
-    return this.currentHp
-};
-getCharacterTempHp() {
-    return this.tempHp
-};
+    getCharacterName() {
+        return this.name
+    };
+    getCharacterBackstory() {
+        return this.backstory
+    };
+    getCharacterAppearance() {
+        return this.appearance
+    };
+    getCharacterIdeals() {
+        return this.ideals
+    };
+    getCharacterObjectives() {
+        return this.objectives
+    };
+    getCharacterBonds() {
+        return this.bonds
+    };
+    getCharacterFlaws() {
+        return this.flaws
+    };
+    getCharacterpersonalityTraits() {
+        return this.personalityTraits
+    };
 
+    getCharacterAlignment() {
+        return this.alignment
+    };
+
+    getCharacterraceId() {
+        return this.raceId
+    };
+    getCharacterClassId() {
+        return this.classId
+    };
+    getCharaterbackgroundId() {
+        return this.backgroundId
+    };
+    getCharacterAttributesId() {
+        return this.attributesId
+    };
+    getCharacterSkillsId() {
+        return this.skillsId
+    };
+    getCharacterUserId() {
+        return this.userId
+    };
+    getCharacterplayerName() {
+        return this.playerName
+    };
+    getCharacterLevel() {
+        return this.level
+    };
+    getCharacterProficiencyBonus() {
+        return this.proficiencyBonus
+    };
+    getCharacterArmorClass() {
+        return this.armorClass
+    };
+    getCharacterInitiative() {
+        return this.initiative
+    };
+    getCharacterSpeed() {
+        return this.speed
+    };
+    getCharacterMaxHp() {
+        return this.maxHp
+    };
+    getCharacterCurrentHp() {
+        return this.currentHp
+    };
+    getCharacterTempHp() {
+        return this.tempHp
+    };
 }
 
 export default Character
