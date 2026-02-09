@@ -33,7 +33,7 @@ export function CharacterCard({ name, class: charClass, level, imageUrl, race }:
       </div>
 
       {/* Button - Right */}
-      <Button variant="outline" size="sm" className="shrink-0">
+      <Button variant="outline" size="sm" className="shrink-0 cursor-pointer">
         Ver ficha
       </Button>
     </div>

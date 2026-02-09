@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, Filter, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,13 @@ const mockCharacters = [
 
 export function CharacterList() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [characters, setCharacters] = useState<any[]>([...mockCharacters]);
+  const [characters, setCharacters] = useState<typeof mockCharacters>([]);
+
+  useEffect(() => {
+    setCharacters(mockCharacters);
+    // Aqui você pode adicionar a lógica para buscar os personagens do backend
+    // Por enquanto, estamos usando os personagens mockados
+  }, []);
 
   const filteredCharacters = characters.filter((char: any) =>
     char.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -43,7 +49,7 @@ export function CharacterList() {
             Listagem dos personagens
           </p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2 cursor-pointer bg-primary-200 hover:bg-primary-500">
           <Plus className="h-4 w-4" />
           Criar Personagem
         </Button>
@@ -61,11 +67,11 @@ export function CharacterList() {
           />
         </div>
         <div className="flex gap-3">
-          <Button variant="secondary" className="gap-2">
+          <Button variant="secondary" className="gap-2 cursor-pointer">
             <Search className="h-4 w-4" />
             Pesquisar
           </Button>
-          <Button variant="outline" className="gap-2">
+          <Button variant="outline" className="gap-2 cursor-pointer">
             <Filter className="h-4 w-4" />
             Filtrar
           </Button>
@@ -73,11 +79,11 @@ export function CharacterList() {
       </div>
 
       {/* Character Grid */}
-      <div className="grid gap-4">
+      <div className="grid gap-4 border rounded-md border-muted p-4">
         {filteredCharacters.map((character, index) => (
           <div
             key={character.id}
-            className="animate-fade-in"
+            className="animate-fade-in border-b last:border-0"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <CharacterCard
